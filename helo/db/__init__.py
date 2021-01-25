@@ -7,6 +7,8 @@ from helo.db.core import Database, logger
 from helo.db.url import URL
 from helo.db.result import ExeResult
 
+ENV_KEY = 'HELO_DATABASE_URL'
+
 __all__ = (
     "Database",
     "URL",
@@ -14,5 +16,3 @@ __all__ = (
     "logger",
     "ENV_KEY",
 )
-
-ENV_KEY = 'HELO_DATABASE_URL'

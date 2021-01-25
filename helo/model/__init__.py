@@ -32,7 +32,6 @@ class Model(with_metaclass(ModelType, ModelBase)):  # type
     ...     nickname = helo.VarChar(length=45)
     ...     password = helo.VarChar(length=100)
     """
-    __db__ = None
 
     @classmethod
     async def create(cls, **options: Any) -> db.ExeResult:
@@ -302,8 +301,8 @@ class Model(with_metaclass(ModelType, ModelBase)):  # type
         return await ApiProxy.remove(self)
 
 
-def new() -> ModelType:
+def new() -> Type[Model]:
     class Model1(Model):
-        __db__ = None
+        __db__ = None  # type: db.Database
 
     return Model1

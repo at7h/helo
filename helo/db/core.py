@@ -38,6 +38,9 @@ class Database:
     }
 
     def __init__(self, url_str: str, **options: typing.Any) -> None:
+        if not url_str:
+            raise ValueError("Database URL cannot be an empty")
+
         self.url = url.URL(url_str)
         self.options = options
         self.echo = options.pop("debug", False)
